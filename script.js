@@ -1,3 +1,5 @@
+// Time configuration with correct Input validation 
+
 // Get the elements from product page 
 const timeSelection = document.querySelectorAll("input.timeSelection")
 const inputAreaTime = document.querySelectorAll("div.flex-time")
@@ -61,4 +63,16 @@ timeSelection.forEach(e => {
     e.addEventListener("click", e => (setInputinAllForms(e.target.value)))
 })
 
+// Additional Trade Options 
+const tradeCheck = document.querySelector("input.checkTrade")
+const optionalTradeField = document.querySelector("div.optionalTrade")
 
+const openField = () => {
+    if (tradeCheck.checked) {
+        optionalTradeField.setAttribute("class", "open")
+    } else {
+        optionalTradeField.setAttribute("class", "close")
+    }
+}
+
+tradeCheck.addEventListener("click", openField)

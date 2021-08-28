@@ -1,3 +1,11 @@
-.flex {
-    
+.optionalTrade {
+    display: none; 
+}
+
+.close {
+    display: none; 
+}
+
+.open {
+    display: block; 
 }

@@ -1,5 +1,4 @@
 // Time configuration with correct Input validation 
-
 // Get the elements from product page 
 const timeSelection = document.querySelectorAll("input.timeSelection")
 const inputAreaTime = document.querySelectorAll("div.flex-time")
@@ -62,6 +61,12 @@ setInputinAllForms("year")
 timeSelection.forEach(e => {
     e.addEventListener("click", e => (setInputinAllForms(e.target.value)))
 })
+//
+
+
+
+
+
 
 // Additional Trade Options 
 const tradeCheck = document.querySelector("input.checkTrade")
@@ -74,33 +79,73 @@ const openField = () => {
         optionalTradeField.setAttribute("class", "close")
     }
 }
-
 tradeCheck.addEventListener("click", openField)
+//
 
 
 
 
-// Search Engine
 
+
+
+// Search Engine goes here 
 const searchInput = document.getElementById("searchField")
 const resultsSearch = document.getElementById("resultsSearch")
+let childBtnsGet = ""
+let lengthValue = 0
 
 const handleCrawler = (value) => {
-    const aktien = [
-        ["fett","dünn"], 
-        ["fetta","dünna"],
-        ["fetts","dünns"],
-        ["fettd","dünnd"],
-        ["fettd","dünnd"],
-    ]
-
     const length = value.length
-    const result = aktien.filter(i => {
-        if(value == i[0].substring(0, length)) {
+    const results = aktien.filter(i => {
+        if(value.toLowerCase() == i[0].toLowerCase().substring(0, length)) {
             return i
         }
     })
-    console.log(result, length)
+    
+    const childBtns = document.querySelectorAll('button.btn-result-chart')
+    childBtns.forEach(btns => {
+        btns.remove()
+    })
+    
+    if(searchInput.value.length > 0) {
+        lengthValue = searchInput.value.length
+        results.forEach(result => {
+            const btn = document.createElement("button")
+            btn.setAttribute("class","btn-result-chart")
+            btn.setAttribute("id","btn-result-chart")
+            btn.setAttribute("value",`${result[0]}: ${result[1]}`)
+            btn.innerHTML = `${result[0]}: ${result[1]}`
+            resultsSearch.appendChild(btn)
+        })
+    }
+    
 }
-
 searchInput.addEventListener("keyup", e => handleCrawler(e.target.value))
+
+
+// search selection 
+document.addEventListener("click", e => {
+    if(e.target.id === "btn-result-chart") {
+        handleClickBtn(e.target.value)
+    }
+})
+
+const handleClickBtn = (val) => {
+    const childBtnsGet = document.querySelectorAll("button.btn-result-chart")
+    searchInput.value = val
+    childBtnsGet.forEach(btns => {
+        btns.remove()
+    })
+}
+//
+
+
+
+
+const aktien = [
+    ["1ett","dünn"], 
+    ["fetta","dünna"],
+    ["fetts","dünns"],
+    ["fettd","dünnd"],
+    ["fettd","dünnd"],
+]

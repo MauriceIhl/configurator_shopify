@@ -9,3 +9,9 @@
 .open {
     display: block; 
 }
+
+.searchConsole {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+}

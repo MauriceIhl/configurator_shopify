@@ -10,6 +10,7 @@
 
 
 <body>
+    <!-- Input für Design, realisiert über shopify-->
     <div class="flex">
         <p class="line-item-property__field">
             <label>Design</label><br>
@@ -19,10 +20,19 @@
             <input type="radio" name="properties[Design]" value="Design 4"> <span>Design 4</span><br>
           </p>
     </div>
+
+    <!-- Searchengine, realisiert über JS-->
+    <div class="searchConsole">
+        <label for="searchItem">Finde deinen Chart</label>
+        <input type="text" name="searchItem" placeholder="Name deiner Aktie, deiner Währung, ..." id="searchField">
+        <div id='resultsSearch'></div>
+    </div>
+
+    <!-- Input für Zeitinterval, realisiert über JS-->
     <div class="flex">
         <p class="line-item-property__field">
             <label>Zeitraum</label><br>
-            <input type="radio" name="properties[time]" value="year" id="time_id_year"  class="timeSelection" checked><span>Jahre</span><br>
+            <input type="radio" name="properties[time]" value="year" id="time_id_year"  class="timeSelection" checked><span> Jahre</span><br>
             <input type="radio" name="properties[time]" value="month" id="time_id_month" class="timeSelection"> <span>Monate</span><br>
             <input type="radio" name="properties[time]" value="day" id="time_id_day" class="timeSelection"> <span>Tage</span><br>
             <input type="radio" name="properties[time]" value="hour" id="time_id_hour" class="timeSelection"> <span>Stunden</span><br>
@@ -48,7 +58,6 @@
         </div>
 
     </div>
-
     <script src="script.js"></script>
 </body>
 </html>

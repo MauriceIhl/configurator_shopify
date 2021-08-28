@@ -76,3 +76,31 @@ const openField = () => {
 }
 
 tradeCheck.addEventListener("click", openField)
+
+
+
+
+// Search Engine
+
+const searchInput = document.getElementById("searchField")
+const resultsSearch = document.getElementById("resultsSearch")
+
+const handleCrawler = (value) => {
+    const aktien = [
+        ["fett","dünn"], 
+        ["fetta","dünna"],
+        ["fetts","dünns"],
+        ["fettd","dünnd"],
+        ["fettd","dünnd"],
+    ]
+
+    const length = value.length
+    const result = aktien.filter(i => {
+        if(value == i[0].substring(0, length)) {
+            return i
+        }
+    })
+    console.log(result, length)
+}
+
+searchInput.addEventListener("keyup", e => handleCrawler(e.target.value))

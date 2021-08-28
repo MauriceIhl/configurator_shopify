@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title> 
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+    <div class="flex">
+        <p class="line-item-property__field">
+            <label>Design</label><br>
+            <input type="radio" name="properties[Design]" value="Design 1" checked> <span>Design 1</span><br>
+            <input type="radio" name="properties[Design]" value="Design 2"> <span>Design 2</span><br>
+            <input type="radio" name="properties[Design]" value="Design 3"> <span>Design 3</span><br>
+            <input type="radio" name="properties[Design]" value="Design 4"> <span>Design 4</span><br>
+          </p>
+    </div>
+    <div class="flex">
+        <p class="line-item-property__field">
+            <label>Zeitraum</label><br>
+            <input type="radio" name="properties[time]" value="year" id="time_id_year"  class="timeSelection" checked><span>Jahre</span><br>
+            <input type="radio" name="properties[time]" value="month" id="time_id_month" class="timeSelection"> <span>Monate</span><br>
+            <input type="radio" name="properties[time]" value="day" id="time_id_day" class="timeSelection"> <span>Tage</span><br>
+            <input type="radio" name="properties[time]" value="hour" id="time_id_hour" class="timeSelection"> <span>Stunden</span><br>
+          </p>
+    </div>
+    <div class="flex-time" id="chart-start-time">
+        <label>Start</label><br>
+    </div>
+    <div class="flex-time" id="chart-end-time">
+        <label>Ende</label><br>
+    </div>
+    <input type="checkbox" class="checkTrade">
+    <div class="optionalTrade">
+        <div class="flex-time" id="trade-start-time">
+            <label>Start</label><br>
+        </div>
+        <div class="flex-time" id="trade-end-time">
+            <label>Ende</label><br>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

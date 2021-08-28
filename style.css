@@ -1,6 +1,3 @@
-.optionalTrade {
-    display: none; 
-}
 
 .close {
     display: none; 
@@ -10,8 +7,12 @@
     display: block; 
 }
 
-.searchConsole {
+.searchConsole, .optionalSpruch {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 400px;
+}
+
+.optionalTrade, .optionalSpruch {
+    display: none; 
 }

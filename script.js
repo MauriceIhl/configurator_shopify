@@ -71,6 +71,8 @@ timeSelection.forEach(e => {
 // Additional Trade Options 
 const tradeCheck = document.querySelector("input.checkTrade")
 const optionalTradeField = document.querySelector("div.optionalTrade")
+const spruchCheck = document.querySelector("input.spruchcheck")
+const optionalSpruchField = document.querySelector("div.optionalSpruch")
 
 const openField = () => {
     if (tradeCheck.checked) {
@@ -79,10 +81,18 @@ const openField = () => {
         optionalTradeField.setAttribute("class", "close")
     }
 }
+
+const openSpruch = () => {
+    if (spruchCheck.checked) {
+        optionalSpruchField.setAttribute("class", "open")
+    } else {
+        optionalSpruchField.setAttribute("class", "close")
+    }
+}
+
 tradeCheck.addEventListener("click", openField)
+spruchCheck.addEventListener("click", openSpruch)
 //
-
-
 
 
 

@@ -1,4 +1,4 @@
-// Time configuration with correct Input validation 
+// Custom Solution 
 // Get the elements from product page 
 const timeSelection = document.querySelectorAll("input.timeSelection")
 const inputAreaTime = document.querySelectorAll("div.flex-time")
@@ -15,29 +15,25 @@ const setInputinAllForms = (value) => {
 
         timeSelection.forEach(val => {
             console.log(value)
-            if (value === "year") {
-                newInputOne.setAttribute('type', 'number')
-                newInputOne.setAttribute('id', 'year')
-                newInputOne.setAttribute('min', '2010')
-                newInputOne.setAttribute('max', '2021')
-                newInputOne.setAttribute('placeholder', '2015')
-                newInputTwo.setAttribute("id","notSet")
-            }
             if (value === "month") {
                 newInputOne.setAttribute('type', 'month')
                 newInputOne.setAttribute('id', 'month')
+                newInputOne.setAttribute("value","2019-05")
                 newInputTwo.setAttribute("id","notSet")
             }
             if (value === "day") {
                 newInputOne.setAttribute('type', 'date')
                 newInputOne.setAttribute('id', 'date')
+                newInputOne.setAttribute("value","2019-05-12")
                 newInputTwo.setAttribute("id","notSet")
             }
             if (value === "hour") {
                 newInputOne.setAttribute('type', 'date')
                 newInputOne.setAttribute('id', 'date-hour')
+                newInputOne.setAttribute("value","2019-05-12")
                 newInputTwo.setAttribute('type', 'time')
                 newInputTwo.setAttribute('id', 'hour-hour')
+                newInputTwo.setAttribute("value", '10:00')
             }
             }) 
 
@@ -56,14 +52,12 @@ const setInputinAllForms = (value) => {
     })
 } 
 
-setInputinAllForms("year")
+setInputinAllForms("month")
 
 timeSelection.forEach(e => {
     e.addEventListener("click", e => (setInputinAllForms(e.target.value)))
 })
 //
-
-
 
 
 
@@ -148,6 +142,50 @@ const handleClickBtn = (val) => {
     })
 }
 //
+
+// Inject all values into on Area
+const valueChart = document.getElementById("searchField")
+const valueTradeStart = document.querySelector("#trade-start-time input") 
+const valueTradeEnd = document.querySelector("#trade-end-time input") 
+const valueCurrencyEinstiegskurs = document.getElementById("currencyEinstiegskurs") 
+const valueCurrencyAustiegskurs = document.getElementById("currencyAustiegskurs") 
+const checkAdditionalPeriod = document.getElementById("additionalPeriod")
+const valueChartStart = document.querySelector("#chart-start-time input") 
+const valueChartEnd = document.querySelector("#chart-end-time input") 
+const checkAdditionalWords = document.getElementById("additionalWords")
+const valueAdditionalWords = document.getElementById("additionalWordsArea")
+const inputBackend = document.getElementById("inputValues")
+
+let valueSum = ""
+
+const testBtn = () => {
+let additionalPeriod = ""
+let additionalWords = ""
+
+if(checkAdditionalPeriod.checked) {
+additionalPeriod = `Chart-start: ${valueChartStart.value},
+Chart-ende: ${valueChartEnd.value},
+    `
+}
+if(checkAdditionalWords.checked) {
+additionalWords = `Text: ${valueAdditionalWords.value}`
+}
+
+
+valueSum = `
+Chart von: ${valueChart.value}, 
+Kaufdatum: ${valueTradeStart.value},
+Verkaufsdatum: ${valueTradeEnd.value},
+Einstiegskurs: ${valueCurrencyEinstiegskurs.value},
+Ausstiegskurs: ${valueCurrencyAustiegskurs.value},
+${additionalPeriod}${additionalWords}
+`
+inputBackend.value = valueSum
+}
+
+const testButton = document.getElementById("inject")
+testButton.addEventListener("click", testBtn)
+
 
 
 const aktien = [

@@ -10,59 +10,90 @@
 
 
 <body>
-    <!-- Input für Design, realisiert über shopify-->
-    <div class="flex">
-        <p class="line-item-property__field">
-            <label>Design</label><br>
-            <input type="radio" name="properties[Design]" value="Design 1" checked> <span>Design 1</span><br>
-            <input type="radio" name="properties[Design]" value="Design 2"> <span>Design 2</span><br>
-            <input type="radio" name="properties[Design]" value="Design 3"> <span>Design 3</span><br>
-            <input type="radio" name="properties[Design]" value="Design 4"> <span>Design 4</span><br>
-          </p>
-    </div>
+    
+    <div>
+        <!-- Input für Design, realisiert über shopify-->
+        <div class="flex">
+            <p class="line-item-property__field">
+                <label>Design</label><br>
+                <input type="radio" name="properties[Design]" value="Design 1" checked> <span>Design 1</span><br>
+                <input type="radio" name="properties[Design]" value="Design 2"> <span>Design 2</span><br>
+                <input type="radio" name="properties[Design]" value="Design 3"> <span>Design 3</span><br>
+                <input type="radio" name="properties[Design]" value="Design 4"> <span>Design 4</span><br>
+            </p>
+        </div>
 
-    <!-- Searchengine, realisiert über JS-->
-    <div class="searchConsole">
-        <label for="searchItem">Wähle deinen Chart</label>
-        <input type="text" name="searchItem" placeholder="Name deiner Aktie, deiner Währung, ..." id="searchField">
-        <div id='resultsSearch'></div>
-    </div>
+        <!-- Searchengine, realisiert über JS-->
+        <div class="searchConsole">
+            <label for="searchItem">Wähle deinen Chart</label>
+            <input type="text" name="searchItem" placeholder="Name deiner Aktie, deiner Währung, ..." id="searchField">
+            <div id='resultsSearch'></div>
+        </div>
 
-    <!-- Input für Zeitinterval, realisiert über JS-->
-    <div class="flex">
-        <p class="line-item-property__field">
-            <label>Zeitraum</label><br>
-            <input type="radio" name="properties[time]" value="year" id="time_id_year"  class="timeSelection" checked><span> Jahre</span><br>
-            <input type="radio" name="properties[time]" value="month" id="time_id_month" class="timeSelection"> <span>Monate</span><br>
-            <input type="radio" name="properties[time]" value="day" id="time_id_day" class="timeSelection"> <span>Tage</span><br>
-            <input type="radio" name="properties[time]" value="hour" id="time_id_hour" class="timeSelection"> <span>Stunden</span><br>
-          </p>
-    </div>
-    <div class="flex-time" id="chart-start-time">
-        <label>Start</label><br>
-    </div>
-    <div class="flex-time" id="chart-end-time">
-        <label>Ende</label><br>
-    </div>
-    <br>
-    <input type="checkbox" class="checkTrade" name="tradercheck">
-    <label for="tradercheck">Meinen Trade abbilden</label>
-    <div class="optionalTrade">
-        <br>
+        <!-- Input für Zeitinterval - radiobutton, realisiert über JS-->
+        <div class="flex">
+            <p class="line-item-property__field">
+                <label>Wie genau möchtest du deinen Trade abgebildet haben?</label><br>
+                <input type="radio" name="time" value="month" id="time_id_month" class="timeSelection" checked> <span>Bis zum Monat genau</span><br>
+                <input type="radio" name="time" value="day" id="time_id_day" class="timeSelection"> <span>Bis zum Tag genau</span><br>
+                <input type="radio" name="time" value="hour" id="time_id_hour" class="timeSelection"> <span>Bis zur Minute genau</span><br>
+            </p>
+        </div>
+
         <div class="flex-time" id="trade-start-time">
-            <label>Start</label><br>
+            <label>Kaufdatum</label><br>
         </div>
         <div class="flex-time" id="trade-end-time">
-            <label>Ende</label><br>
+            <label>Verkaufsdatum</label><br>
         </div>
-    </div>
-    <br>
-    <input type="checkbox" class="spruchcheck" name="spruchcheck">
-    <label for="tradercheck">Persönliche Widmung</label>
-    <div class="optionalSpruch">
+        <br>
 
-        <p>Füge deinen individuellen Spruch hinzu</p>
-        <textarea></textarea>
+        <!-- Input für Währung - radiobutton -->
+        <div class="flex">
+            <p class="line-item-property__field">
+                <label>Währung</label><br>
+                <input type="radio" name="properties[currency]" value="euro" id="currency_euro"  class="currencySelection" checked><span>Euro</span><br>
+                <input type="radio" name="properties[currency]" value="dollar" id="currency_dollar" class="currencySelection"><span>Dollar</span><br>
+            </p>
+        </div>
+        <!-- Input für Währung --->
+        <div class="flex">
+            <p class="line-item-property__field">
+                <label>Einstiegskurs</label><br>
+                <input type="number" name="currencyAmount" value="100" id="currencyEinstiegskurs" class="currencyEinstiegskurs">
+            </p>
+            <p class="line-item-property__field">
+                <label>Austiegskurs</label><br>
+                <input type="number" name="currencyAmount" value="150" id="currencyAustiegskurs" class="currencyAustiegskurs">
+            </p>
+        </div>
+
+        <!-- Input für Zeitinterval - radiobutton, realisiert über JS-->
+        <input type="checkbox" class="checkTrade" name="tradercheck" id="additionalPeriod">
+        <label for="tradercheck">Ich möchte einen größeren Zeitraum im Diagramm darstellen lassen</label>
+        <div class="optionalTrade">
+            <br>
+            <div class="flex-time" id="chart-start-time">
+                <label>Startzeitpunkt</label><br>
+            </div>
+            <div class="flex-time" id="chart-end-time">
+                <label>Endzeitpunkt</label><br>
+            </div>
+        </div>
+        <br>
+
+        <input type="checkbox" class="spruchcheck" name="spruchcheck" id="additionalWords">
+        <label for="tradercheck">Persönliche Widmung</label>
+        <div class="optionalSpruch">
+
+            <p>Füge deinen individuellen Spruch hinzu</p>
+            <textarea id="additionalWordsArea"></textarea>
+        </div>
+        <br><br>
+        <div>
+            <button id="inject">Inject</button>
+            <textarea id="inputValues"></textarea>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>

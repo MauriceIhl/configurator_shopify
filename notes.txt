@@ -1,0 +1,20 @@
+--> shopify product-form.liquid
+
+
+{% comment %} custom Code starts here {% endcomment %} 
+    <p class="line-item-property__field">
+      <label>Your name</label><br>
+      <input required class="required" type="radio" name="properties[Dein Design]" value="Design 1" id="choosenDesign"> <span>Design 1</span><br>
+      <input required class="required" type="radio" name="properties[Dein Design]" value="Design 2" id="choosenDesign"> <span>Design 2</span><br>
+      <input required class="required" type="radio" name="properties[Dein Design]" value="Design 3" id="choosenDesign"> <span>Design 3</span><br>
+      <input required class="required" type="radio" name="properties[Dein Design]" value="Design 4" id="choosenDesign"> <span>Design 4</span><br>
+      <input required class="required" type="radio" name="properties[Dein Design]" value="Design 3" id="choosenDesign"> <span>Design 5</span><br>
+      <input required class="required" type="radio" name="properties[Dein Design]" value="Design 4" id="choosenDesign"> <span>Design 6</span><br>
+	</p>
+    
+    <p class="line-item-property__field" > 
+      <label for="angaben">Angaben</label>
+      <textarea id="angaben" type="text" name="properties[Angaben]"></textarea>
+    </p>
+    
+{% comment %} custom Code endshere {% endcomment %} 

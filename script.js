@@ -215,7 +215,7 @@ const valueChartStart = document.querySelector("#chart-start-time input")
 const valueChartEnd = document.querySelector("#chart-end-time input") 
 const checkAdditionalWords = document.getElementById("additionalWords")
 const valueAdditionalWords = document.getElementById("additionalWordsArea")
-const inputBackend = document.getElementById("inputValues")
+const inputBackend = document.getElementById("angaben")
 
 let valueSum = ""
 

@@ -13,6 +13,7 @@
     
     <div>
         <!-- Input für Design, realisiert über shopify-->
+
         <div class="flex">
             <p class="line-item-property__field">
                 <label>Design</label><br>
@@ -20,6 +21,15 @@
                 <input type="radio" name="properties[Design]" value="Design 2"> <span>Design 2</span><br>
                 <input type="radio" name="properties[Design]" value="Design 3"> <span>Design 3</span><br>
                 <input type="radio" name="properties[Design]" value="Design 4"> <span>Design 4</span><br>
+            </p>
+        </div>
+
+        <div class="flex">
+            <p class="line-item-property__field">
+                <label>Welchen Chart suchst du?</label><br>
+                <input type="radio" name="chartType" value="aktien" id="chart_aktien" class="chartSelection" checked> <span>Aktien</span><br>
+                <input type="radio" name="chartType" value="forex" id="chart_forex" class="chartSelection"> <span>Forex</span><br>
+                <input type="radio" name="chartType" value="krypto" id="chart_krypto" class="chartSelection"> <span>Kryptocoins</span><br>
             </p>
         </div>
 
@@ -49,13 +59,12 @@
         <br>
 
         <!-- Input für Währung - radiobutton -->
-        <div class="flex">
-            <p class="line-item-property__field">
+        <div class="currencyPicker">
                 <label>Währung</label><br>
-                <input type="radio" name="properties[currency]" value="euro" id="currency_euro"  class="currencySelection" checked><span>Euro</span><br>
-                <input type="radio" name="properties[currency]" value="dollar" id="currency_dollar" class="currencySelection"><span>Dollar</span><br>
-            </p>
+                <input type="radio" name="currency" value="euro" id="currency_euro"  class="currencySelection" checked><span>Euro</span><br>
+                <input type="radio" name="currency" value="dollar" id="currency_dollar" class="currencySelection"><span>Dollar</span><br>
         </div>
+
         <!-- Input für Währung --->
         <div class="flex">
             <p class="line-item-property__field">

@@ -94,6 +94,8 @@ spruchCheck.addEventListener("click", openSpruch)
 
 // Search Engine goes here 
 const radioButtons = document.querySelectorAll(".chartSelection")
+const searchInput = document.getElementById("searchField")
+const resultsSearch = document.getElementById("resultsSearch")
 let choosenChartType = "aktien"
 // Function to set the rigth Search and Currency field
 const setSearchVariable = (value) => {
@@ -107,24 +109,25 @@ const setSearchVariable = (value) => {
         choosenChartType = "krypto"
     }
     handlePickerVisibility()
+    searchInput.value = ""
+    handleCrawler()
 }
 
 radioButtons.forEach(btn => {
     btn.addEventListener("click", e => setSearchVariable(e.target.value))
 })
 
-const searchInput = document.getElementById("searchField")
-const resultsSearch = document.getElementById("resultsSearch")
+
 let childBtnsGet = ""
 let lengthValue = 0
+let results = ''
 
 const handleCrawler = (value) => {
-    const length = value.length
-    let results = ''
+    const length = value?.length
 
     if(choosenChartType === "aktien") {
         const state = aktien.filter(i => {
-            if(value.toLowerCase() == i[0].toLowerCase().substring(0, length)) {
+            if(value?.toLowerCase() == i[0]?.toLowerCase().substring(0, length)) {
                 return i
             }
         })
@@ -133,7 +136,7 @@ const handleCrawler = (value) => {
 
     if(choosenChartType === "forex") {
         const state = forex.filter(i => {
-            if(value.toLowerCase() == i[0].toLowerCase().substring(0, length)) {
+            if(value?.toLowerCase() == i[0].toLowerCase().substring(0, length)) {
                 return i
             }
         })
@@ -141,7 +144,7 @@ const handleCrawler = (value) => {
     }
     if(choosenChartType === "krypto") {
         const state = krypto.filter(i => {
-            if(value.toLowerCase() == i[0].toLowerCase().substring(0, length)) {
+            if(value?.toLowerCase() == i[0].toLowerCase().substring(0, length)) {
                 return i
             }
         })

@@ -1,4 +1,4 @@
-# Configurator for a Shopify hobby project
+# Configurator for Shopify
 
 Code Snippet for:
 - searching the right chart in the array of crypto, forex, stocks
